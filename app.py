@@ -138,14 +138,14 @@ def gen_frames():
 def index1():
     return render_template('index.html')
 
-@app.route('/criminals', methods=['GET',"POST"])
-def criminals():
+@app.route('/students', methods=['GET',"POST"])
+def students():
     form = UploadFileForm()
     if form.validate_on_submit():
         file = form.file.data # First grab the file
         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename))) # Then save the file
         return "File has been uploaded."
-    return render_template('criminals.html', form=form)
+    return render_template('students.html', form=form)
 
 @app.route('/index')
 def index():
@@ -155,8 +155,8 @@ def index():
 def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/criminalsDetected')
-def criminalsDetected():
+@app.route('/studentsDetected')
+def studentsDetected():
     counter=0
     for cu_imgs in known_face_names:
         todo = Todo.query.filter_by(sno=counter+1).first()
@@ -166,7 +166,7 @@ def criminalsDetected():
         db.session.add(todo)
         db.session.commit()
     allTodo = Todo.query.all()
-    return render_template('criminalsDetected.html', allTodo=allTodo)
+    return render_template('studentsDetected.html', allTodo=allTodo)
 
 if __name__=='__main__':
     app.run(debug=True)
