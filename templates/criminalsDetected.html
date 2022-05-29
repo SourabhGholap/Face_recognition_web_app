@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container my-3">
+        <h2>Criminals detected with their apperance</h2>
+        {% if allTodo|length==0 %}
+        <div class="alert alert-dark" role="alert">
+            Please add a record 
+            till now no records are present
+          </div> 
+          {% else %}
+         <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">SNo</th>
+                <th scope="col">Title</th>
+                <th scope="col">Apperance</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for todo in allTodo  %}  
+              <tr>
+                <th scope="row">{{todo.sno}}</th>
+                <td>{{todo.title}}</td>
+                <td>{{todo.apperance}}</td>
+              </tr>
+              
+              {% endfor %}
+              
+        {% endif %} 
+            
+            </tbody>
+          </table>
+    </div>
+
+{% endblock %}

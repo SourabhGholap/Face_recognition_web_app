@@ -1,0 +1,20 @@
+h1{
+    color: black;
+    font-size: 60px ;
+
+}
+
+body {
+     background: bisque;
+}
+.gallery1{
+   
+    
+    float:left;
+    width:390px;
+}
+ 
+.gallery img{
+    width:auto;
+    height : auto;
+}

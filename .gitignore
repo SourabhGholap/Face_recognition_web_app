@@ -1,0 +1,4 @@
+__pycache__/
+face_recognisation/
+opencv/
+todo.db
