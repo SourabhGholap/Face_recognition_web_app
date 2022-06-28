@@ -19,7 +19,7 @@ create vitual environment env and activate it
   
 ```bash
   virtualenv env
-  .\env\Scripts\activate\ps1
+  .\env\Scripts\activate.ps1
 ``` 
 Install all the libraries present in requirement.txt
 
